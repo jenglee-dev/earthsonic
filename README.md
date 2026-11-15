@@ -110,24 +110,40 @@ Clicking any `DataStatusBadge` opens an accessible popover (`Escape` to close) s
 
 ---
 
-## 6. Deployment Instructions
+## 6. Deployment (Render Backend + Vercel Frontend)
 
-### Backend (`/server` + `/shared`) — Render / Railway / Fly.io
-1. Deploy using the root [`Dockerfile`](./Dockerfile), or configure a Node.js service with:
-   - **Build Command:** `npm ci && npm run build --workspace=shared && npm run build --workspace=server`
-   - **Start Command:** `npm run start --workspace=server`
-2. Set environment variables:
-   - `PORT=3001`
-   - `HOST=0.0.0.0`
-   - `CORS_ALLOWED_ORIGINS=https://your-frontend-domain.vercel.app`
+EarthSonic is structured as a single npm-workspaces monorepo (`shared`, `server`, `web`) designed so the backend and frontend deploy independently to different hosting platforms:
 
-### Frontend (`/web`) — Vercel / Netlify / GitHub Pages
-1. Configure build settings from the repository root:
-   - **Build Command:** `npm run build --workspace=shared && npm run build --workspace=web`
-   - **Publish Directory:** `web/dist`
-2. Set environment variables:
-   - `VITE_API_BASE_URL=https://your-backend-service.onrender.com/api/v1`
-   - `VITE_BASE_PATH=/` (or `/repo-name/` for GitHub Pages)
+- **Architecture:**
+  - **Backend (`/server` + `/shared`)** → **Render** (Node Web Service via [`render.yaml`](./render.yaml) or [`Dockerfile`](./Dockerfile))
+  - **Frontend (`/web` + `/shared`)** → **Vercel** (Static SPA + PWA via [`vercel.json`](./vercel.json))
+
+### Deployment Order
+1. **Deploy the Backend on Render first:**
+   - Connect this repository on Render (or import [`render.yaml`](./render.yaml)).
+   - Copy the deployed backend URL (e.g., `https://earthsonic-api.onrender.com`).
+2. **Deploy the Frontend on Vercel:**
+   - Connect this repository on Vercel (Root Directory = repo root; [`vercel.json`](./vercel.json) sets the build command, `web/dist` output, SPA rewrites, and `sw.js`/`index.html` no-cache headers).
+   - Set `VITE_API_BASE_URL` = `https://<your-render-service>.onrender.com/api/v1` and deploy.
+3. **Update Render `ALLOWED_ORIGINS` and Redeploy:**
+   - Copy your Vercel frontend URL (e.g., `https://earthsonic.vercel.app`).
+   - In Render → Environment, set `ALLOWED_ORIGINS` to that exact Vercel origin (comma-separated if multiple) and trigger a redeploy.
+
+### Environment Variables
+
+| Variable | Where to Set | Purpose |
+| :--- | :--- | :--- |
+| `PORT` | Render (auto-injected; default `3001` locally) | HTTP port for `@earthsonic/server`. |
+| `NODE_ENV` | Render (`production`) | Enables `0.0.0.0` binding and strict `ALLOWED_ORIGINS` CORS enforcement (no wildcard). |
+| `ALLOWED_ORIGINS` | Render | Comma-separated allowed frontend origins (e.g. `https://earthsonic.vercel.app`). |
+| `CACHE_TTL_MS` | Render (optional, default `900000`) | In-memory NASA upstream cache TTL in milliseconds. |
+| `UPSTREAM_TIMEOUT_MS` | Render (optional, default `8000`) | Upstream NASA request timeout in milliseconds. |
+| `VITE_API_BASE_URL` | Vercel (build-time) | Full backend API base URL ending in `/api/v1`. |
+| `VITE_BASE_PATH` | Vercel (optional, default `/`) | Base URL path for the Vite app and PWA manifest. |
+
+### Free-Tier Cold Start & Offline Fallback
+- **Render free-tier cold start:** Free Render web services spin down after inactivity; the first API request after idle can take **30–60 seconds** to wake up (exceeding the client's 8-second request timeout).
+- **If the backend is unreachable (or `VITE_API_BASE_URL` is empty):** The frontend never crashes or blocks playback. It automatically falls back to **`SAVED ON THIS DEVICE`** (previously validated data in `localStorage` `< 30 days` old) or **`LOCAL DEMONSTRATION DATA`**, and displays the corresponding provenance badge and Retry button.
 
 ---
 

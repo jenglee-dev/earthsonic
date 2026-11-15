@@ -24,7 +24,7 @@ export function getApiBaseUrl(): string {
   if (typeof envUrl === 'string' && envUrl.trim().length > 0) {
     return envUrl.replace(/\/+$/, '');
   }
-  return 'http://127.0.0.1:3001/api/v1';
+  return import.meta.env.DEV ? 'http://127.0.0.1:3001/api/v1' : '';
 }
 
 export interface RequestOptions {
@@ -48,6 +48,13 @@ export async function requestAndValidate<T>(
   options: RequestOptions = {}
 ): Promise<ApiResult<T>> {
   const baseUrl = getApiBaseUrl();
+  if (!baseUrl) {
+    return {
+      ok: false,
+      reason: 'NETWORK',
+      message: 'API base URL (VITE_API_BASE_URL) is not configured.'
+    };
+  }
   const url = `${baseUrl}${endpointPath.startsWith('/') ? endpointPath : `/${endpointPath}`}`;
   const timeoutMs = options.timeoutMs ?? 8000;
   const fetchFn = options.fetchImpl ?? globalThis.fetch;

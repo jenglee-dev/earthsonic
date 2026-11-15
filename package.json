@@ -10,7 +10,7 @@
   ],
   "scripts": {
     "build": "npm run build --workspace=shared && npm run build --workspace=server && npm run build --workspace=web",
-    "typecheck": "npm run typecheck --workspace=shared && npm run typecheck --workspace=server && npm run typecheck --workspace=web",
+    "typecheck": "npm run build --workspace=shared && npm run typecheck --workspace=server && npm run typecheck --workspace=web",
     "snapshot": "npm run snapshot --workspace=server",
     "smoke": "npm run smoke --workspace=server",
     "test": "npm run test --workspace=server && npm run test --workspace=web",

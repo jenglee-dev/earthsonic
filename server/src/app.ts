@@ -42,18 +42,21 @@ export async function buildServer(options: BuildServerOptions = {}): Promise<Fas
     contentSecurityPolicy: false
   });
 
-  // CORS allow-list from env or localhost defaults
-  const allowedOriginsEnv =
-    process.env.CORS_ALLOWED_ORIGINS ||
-    'http://localhost:5173,http://127.0.0.1:5173,http://localhost:4173,http://127.0.0.1:4173';
-  const allowedOrigins = allowedOriginsEnv
+  // CORS allow-list from ALLOWED_ORIGINS (plus local dev origins outside production)
+  const isProd = process.env.NODE_ENV === 'production';
+  const rawOrigins = process.env.ALLOWED_ORIGINS || process.env.CORS_ALLOWED_ORIGINS || '';
+  const envOrigins = rawOrigins
     .split(',')
     .map((o) => o.trim())
-    .filter(Boolean);
+    .filter((o) => Boolean(o) && !(isProd && o === '*'));
+  const devDefaults = isProd
+    ? []
+    : ['http://localhost:5173', 'http://127.0.0.1:5173', 'http://localhost:4173', 'http://127.0.0.1:4173'];
+  const allowedOrigins = Array.from(new Set([...devDefaults, ...envOrigins]));
 
   await app.register(cors, {
     origin: (origin, cb) => {
-      if (!origin || allowedOrigins.includes('*') || allowedOrigins.includes(origin)) {
+      if (!origin || (!isProd && allowedOrigins.includes('*')) || allowedOrigins.includes(origin)) {
         cb(null, true);
         return;
       }

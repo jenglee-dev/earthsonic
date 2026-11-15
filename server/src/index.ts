@@ -1,7 +1,8 @@
 import { buildServer } from './app.js';
 
 const PORT = Number(process.env.PORT || 3001);
-const HOST = process.env.HOST || '127.0.0.1';
+const isProduction = process.env.NODE_ENV === 'production' || Boolean(process.env.RENDER);
+const HOST = process.env.HOST || (isProduction ? '0.0.0.0' : '127.0.0.1');
 
 async function start() {
   const app = await buildServer();

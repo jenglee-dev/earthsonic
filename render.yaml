@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: earthsonic-api
+    runtime: node
+    plan: free
+    buildCommand: npm ci && npm run build --workspace=shared && npm run build --workspace=server
+    startCommand: npm run start --workspace=server
+    healthCheckPath: /api/v1/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NODE_VERSION
+        value: 22.14.0
+      - key: ALLOWED_ORIGINS
+        sync: false
+      - key: CACHE_TTL_MS
+        value: "900000"
+      - key: UPSTREAM_TIMEOUT_MS
+        value: "8000"
