@@ -1,0 +1,373 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-display: 'Manrope', 'Space Grotesk', system-ui, -apple-system, sans-serif;
+    --font-tech: 'Orbitron', 'Space Grotesk', system-ui, sans-serif;
+    --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --bg-void: #050914;
+    --bg-deep: #0A1220;
+    --bg-panel: #101C2D;
+    --text-primary: #F5F8FF;
+    --text-muted: #A9BAD0;
+    --exp-accent: #FFC66D;
+    --accent-amber: #FFC66D;
+    --accent-cyan: #52C7F5;
+    --accent-violet: #8A7CFF;
+    --accent-green: #57D6A0;
+  }
+
+  html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+    scroll-padding-top: var(--scroll-pad-top, 96px);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--bg-void);
+    color: var(--text-primary);
+    min-height: 100vh;
+    background-image:
+      radial-gradient(ellipse 80% 50% at 50% -15%, rgba(82, 199, 245, 0.12), transparent),
+      radial-gradient(ellipse 60% 45% at 88% 85%, rgba(138, 124, 255, 0.09), transparent),
+      radial-gradient(circle at 18% 45%, rgba(255, 198, 109, 0.05), transparent);
+    background-attachment: fixed;
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-mono-tabular {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* Faint space starfield layer (static under reduced motion) */
+.earthsonic-starfield {
+  background-image:
+    radial-gradient(1px 1px at 12% 18%, rgba(245, 248, 255, 0.45) 50%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 34% 62%, rgba(82, 199, 245, 0.4) 50%, transparent 100%),
+    radial-gradient(1px 1px at 56% 24%, rgba(245, 248, 255, 0.35) 50%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 78% 72%, rgba(138, 124, 255, 0.4) 50%, transparent 100%),
+    radial-gradient(1px 1px at 90% 15%, rgba(255, 198, 109, 0.35) 50%, transparent 100%),
+    radial-gradient(1px 1px at 22% 88%, rgba(245, 248, 255, 0.3) 50%, transparent 100%);
+  background-size: 420px 420px;
+}
+
+/* Typography & Gradient Signature Utilities */
+.font-tech {
+  font-family: var(--font-tech);
+  letter-spacing: 0.02em;
+}
+
+.title-gradient-hero {
+  background: linear-gradient(180deg, #FFFFFF 30%, #BCE3FF 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.title-gradient-soft {
+  background: linear-gradient(95deg, #FFFFFF 0%, #D9EEFF 70%, #9BD4FF 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Glass Panel with luminous rim highlight & solid fallback */
+.glass-panel {
+  background-color: rgba(16, 28, 45, 0.94);
+  border: 1px solid rgba(166, 206, 248, 0.22);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.14),
+    inset 0 -1px 0 rgba(82, 199, 245, 0.08),
+    0 20px 50px rgba(3, 7, 18, 0.72);
+}
+
+@supports (backdrop-filter: blur(20px)) {
+  .glass-panel {
+    background: linear-gradient(
+      145deg,
+      rgba(20, 35, 58, 0.56) 0%,
+      rgba(12, 22, 38, 0.62) 100%
+    );
+    backdrop-filter: blur(20px) saturate(135%);
+  }
+}
+
+.glass-panel-deep {
+  background-color: rgba(10, 18, 32, 0.96);
+  border: 1px solid rgba(148, 192, 240, 0.18);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 12px 32px rgba(4, 8, 20, 0.62);
+}
+
+@supports (backdrop-filter: blur(16px)) {
+  .glass-panel-deep {
+    background: linear-gradient(
+      160deg,
+      rgba(14, 25, 44, 0.74) 0%,
+      rgba(8, 14, 28, 0.82) 100%
+    );
+    backdrop-filter: blur(16px);
+  }
+}
+
+.callout-badge-halo {
+  box-shadow: 0 0 22px rgba(87, 214, 160, 0.52);
+}
+
+/* Route transition <= 200ms */
+@keyframes pageFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-transition {
+  animation: pageFadeIn 180ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-transition {
+    animation: none;
+  }
+}
+
+/* Accessibility Mode scaling */
+.accessibility-mode-active {
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+/* Large Accessible Range Sliders (8-10px track, 24px thumb) */
+.earthsonic-slider-lg {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 10px;
+  border-radius: 9999px;
+  outline-offset: 4px;
+}
+
+.earthsonic-slider-lg::-webkit-slider-runnable-track {
+  height: 10px;
+  border-radius: 9999px;
+}
+
+.earthsonic-slider-lg::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  margin-top: -7px;
+  border-radius: 9999px;
+  background: #F5F8FF;
+  border: 3px solid var(--slider-accent, var(--exp-accent, #52C7F5));
+  box-shadow: 0 0 12px rgba(5, 9, 20, 0.85), 0 0 0 2px rgba(245, 248, 255, 0.25);
+  cursor: pointer;
+}
+
+.earthsonic-slider-lg::-moz-range-track {
+  height: 10px;
+  border-radius: 9999px;
+}
+
+.earthsonic-slider-lg::-moz-range-thumb {
+  width: 24px;
+  height: 24px;
+  border-radius: 9999px;
+  background: #F5F8FF;
+  border: 3px solid var(--slider-accent, var(--exp-accent, #52C7F5));
+  box-shadow: 0 0 12px rgba(5, 9, 20, 0.85);
+  cursor: pointer;
+}
+
+.earthsonic-vol-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 8px;
+  border-radius: 9999px;
+  outline-offset: 4px;
+}
+
+.earthsonic-vol-slider::-webkit-slider-runnable-track {
+  height: 8px;
+  border-radius: 9999px;
+}
+
+.earthsonic-vol-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  margin-top: -8px;
+  border-radius: 9999px;
+  background: #F5F8FF;
+  border: 3px solid #52C7F5;
+  box-shadow: 0 0 10px rgba(5, 9, 20, 0.85);
+  cursor: pointer;
+}
+
+.earthsonic-vol-slider::-moz-range-track {
+  height: 8px;
+  border-radius: 9999px;
+}
+
+.earthsonic-vol-slider::-moz-range-thumb {
+  width: 24px;
+  height: 24px;
+  border-radius: 9999px;
+  background: #F5F8FF;
+  border: 3px solid #52C7F5;
+  box-shadow: 0 0 10px rgba(5, 9, 20, 0.85);
+  cursor: pointer;
+}
+
+/* Custom sleek scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050914;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1E2E48;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #334155;
+}
+
+/* Always visible keyboard focus baseline */
+:focus-visible {
+  outline: 2.5px solid #7CE8FF;
+  outline-offset: 2px;
+}
+
+/* Accessibility Center: Thick High-Visibility Focus Rings */
+html[data-focus="thick"] :focus-visible {
+  outline: 3.5px solid #FFE600 !important;
+  outline-offset: 3px !important;
+  box-shadow: 0 0 0 6px #000000 !important;
+}
+
+/* Accessibility Center: High Contrast Theme (>= 7:1 primary & control contrast) */
+html[data-contrast="high"] {
+  --bg-void: #000000;
+  --text-primary: #FFFFFF;
+}
+
+html[data-contrast="high"] body {
+  background-color: #000000 !important;
+  color: #FFFFFF !important;
+}
+
+html[data-contrast="high"] .glass-panel,
+html[data-contrast="high"] .glass-panel-deep {
+  background: #050811 !important;
+  backdrop-filter: none !important;
+  border-color: #FFFFFF !important;
+  border-width: 2px !important;
+}
+
+html[data-contrast="high"] .title-gradient-hero,
+html[data-contrast="high"] .title-gradient-soft {
+  background: none !important;
+  -webkit-background-clip: initial !important;
+  background-clip: initial !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  color: #FFFFFF !important;
+}
+
+html[data-contrast="high"] .text-\[\#9AA9BD\],
+html[data-contrast="high"] .text-\[\#A9BAD0\],
+html[data-contrast="high"] .text-slate-400,
+html[data-contrast="high"] .text-slate-300 {
+  color: #E2E8F0 !important;
+}
+
+html[data-contrast="high"] header,
+html[data-contrast="high"] footer,
+html[data-contrast="high"] nav,
+html[data-contrast="high"] button,
+html[data-contrast="high"] input,
+html[data-contrast="high"] select,
+html[data-contrast="high"] [role="dialog"] {
+  border-color: rgba(255, 255, 255, 0.85) !important;
+}
+
+/* Accessibility Center: Reduce Motion (in-app override & OS preference) */
+html[data-motion="reduce"],
+html[data-motion="reduce"] * {
+  scroll-behavior: auto !important;
+}
+
+html[data-motion="reduce"] *,
+html[data-motion="reduce"] *::before,
+html[data-motion="reduce"] *::after {
+  animation-duration: 0.001ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.001ms !important;
+}
+
+/* Accessibility Center: Readable Sans Font */
+html[data-font="readable"] body,
+html[data-font="readable"] .font-display,
+html[data-font="readable"] .font-tech,
+html[data-font="readable"] .font-mono-tabular {
+  font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif !important;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Accessibility Center: Extra Text Spacing (WCAG 1.4.12 style) */
+html[data-spacing="wide"] body,
+html[data-spacing="wide"] p,
+html[data-spacing="wide"] li,
+html[data-spacing="wide"] label,
+html[data-spacing="wide"] td,
+html[data-spacing="wide"] th,
+html[data-spacing="wide"] button {
+  letter-spacing: 0.04em !important;
+  word-spacing: 0.12em !important;
+  line-height: 1.75 !important;
+}
+
+/* Accessibility Center: Larger Touch & Click Targets (>= 48px) */
+html[data-targets="large"] button,
+html[data-targets="large"] [role="tab"],
+html[data-targets="large"] [role="switch"] {
+  min-height: 48px !important;
+}
+
+html[data-targets="large"] .earthsonic-slider-lg::-webkit-slider-thumb,
+html[data-targets="large"] .earthsonic-vol-slider::-webkit-slider-thumb {
+  width: 28px !important;
+  height: 28px !important;
+}
+
+/* High text zoom safety: prevent long labels overflowing small viewports */
+html[data-text-size="150"],
+html[data-text-size="175"],
+html[data-text-size="200"] {
+  overflow-wrap: anywhere;
+}

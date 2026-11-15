@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="earthGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#52C7F5" />
+      <stop offset="50%" stop-color="#57D6A0" />
+      <stop offset="100%" stop-color="#8A7CFF" />
+    </linearGradient>
+  </defs>
+  <!-- Safe-zone background for maskable icon -->
+  <rect width="512" height="512" rx="112" fill="#050914" />
+  <!-- Earth orbital circle -->
+  <circle cx="256" cy="256" r="168" fill="#0A1220" stroke="url(#earthGrad)" stroke-width="14" />
+  <!-- Latitude / Longitude subtle arcs -->
+  <ellipse cx="256" cy="256" rx="168" ry="64" fill="none" stroke="#1E2E48" stroke-width="6" />
+  <ellipse cx="256" cy="256" rx="64" ry="168" fill="none" stroke="#1E2E48" stroke-width="6" />
+  <!-- Sound wave inside the Earth circle -->
+  <g stroke="url(#earthGrad)" stroke-width="18" stroke-linecap="round">
+    <line x1="148" y1="226" x2="148" y2="286" />
+    <line x1="184" y1="186" x2="184" y2="326" />
+    <line x1="220" y1="146" x2="220" y2="366" />
+    <line x1="256" y1="118" x2="256" y2="394" />
+    <line x1="292" y1="156" x2="292" y2="356" />
+    <line x1="328" y1="196" x2="328" y2="316" />
+    <line x1="364" y1="230" x2="364" y2="282" />
+  </g>
+</svg>

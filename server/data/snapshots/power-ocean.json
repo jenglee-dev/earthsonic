@@ -1,0 +1,193 @@
+{
+  "experienceId": "ocean",
+  "variable": "MERRA-2 Bias-Corrected Precipitation Rate (PRECTOTCORR)",
+  "unit": "mm/day",
+  "isRatioScale": true,
+  "documentedRange": {
+    "min": 0,
+    "max": 14,
+    "basis": "Documented NASA POWER MERRA-2 monthly bias-corrected precipitation rate (PRECTOTCORR, 0.0 to 14.0 mm/day) across marine and tropical convergence zones."
+  },
+  "observations": [
+    {
+      "date": "2022-01-15",
+      "value": 0.39,
+      "secondaryValue": 6.68,
+      "tertiaryValue": 25.26,
+      "normalized": 0.0279
+    },
+    {
+      "date": "2022-02-15",
+      "value": 0.67,
+      "secondaryValue": 6.66,
+      "tertiaryValue": 25.32,
+      "normalized": 0.0479
+    },
+    {
+      "date": "2022-03-15",
+      "value": 3.82,
+      "secondaryValue": 5.46,
+      "tertiaryValue": 26.05,
+      "normalized": 0.2729
+    },
+    {
+      "date": "2022-04-15",
+      "value": 12.06,
+      "secondaryValue": 4.9,
+      "tertiaryValue": 26.44,
+      "normalized": 0.8614,
+      "annotation": "2022-04: High ITCZ Precipitation Pulse (12.06 mm/day)"
+    },
+    {
+      "date": "2022-05-15",
+      "value": 2.34,
+      "secondaryValue": 5.39,
+      "tertiaryValue": 26.37,
+      "normalized": 0.1671
+    },
+    {
+      "date": "2022-06-15",
+      "value": 4.55,
+      "secondaryValue": 5.51,
+      "tertiaryValue": 26.46,
+      "normalized": 0.325
+    },
+    {
+      "date": "2022-07-15",
+      "value": 1.04,
+      "secondaryValue": 6.21,
+      "tertiaryValue": 26.3,
+      "normalized": 0.0743
+    },
+    {
+      "date": "2022-08-15",
+      "value": 0.57,
+      "secondaryValue": 6.46,
+      "tertiaryValue": 26,
+      "normalized": 0.0407
+    },
+    {
+      "date": "2022-09-15",
+      "value": 0.67,
+      "secondaryValue": 6.69,
+      "tertiaryValue": 25.82,
+      "normalized": 0.0479
+    },
+    {
+      "date": "2022-10-15",
+      "value": 0.37,
+      "secondaryValue": 6.55,
+      "tertiaryValue": 25.58,
+      "normalized": 0.0264
+    },
+    {
+      "date": "2022-11-15",
+      "value": 0.41,
+      "secondaryValue": 6.14,
+      "tertiaryValue": 25.31,
+      "normalized": 0.0293
+    },
+    {
+      "date": "2022-12-15",
+      "value": 1.28,
+      "secondaryValue": 6.88,
+      "tertiaryValue": 25.45,
+      "normalized": 0.0914
+    },
+    {
+      "date": "2023-01-15",
+      "value": 2.12,
+      "secondaryValue": 6.12,
+      "tertiaryValue": 25.4,
+      "normalized": 0.1514
+    },
+    {
+      "date": "2023-02-15",
+      "value": 3.71,
+      "secondaryValue": 5.97,
+      "tertiaryValue": 25.85,
+      "normalized": 0.265
+    },
+    {
+      "date": "2023-03-15",
+      "value": 2.3,
+      "secondaryValue": 6.62,
+      "tertiaryValue": 26.55,
+      "normalized": 0.1643
+    },
+    {
+      "date": "2023-04-15",
+      "value": 7.52,
+      "secondaryValue": 5.85,
+      "tertiaryValue": 27.03,
+      "normalized": 0.5371
+    },
+    {
+      "date": "2023-05-15",
+      "value": 5.44,
+      "secondaryValue": 5.14,
+      "tertiaryValue": 27.63,
+      "normalized": 0.3886
+    },
+    {
+      "date": "2023-06-15",
+      "value": 4.45,
+      "secondaryValue": 4.78,
+      "tertiaryValue": 27.67,
+      "normalized": 0.3179
+    },
+    {
+      "date": "2023-07-15",
+      "value": 3.74,
+      "secondaryValue": 5.09,
+      "tertiaryValue": 27.76,
+      "normalized": 0.2671
+    },
+    {
+      "date": "2023-08-15",
+      "value": 3.39,
+      "secondaryValue": 5.05,
+      "tertiaryValue": 27.49,
+      "normalized": 0.2421
+    },
+    {
+      "date": "2023-09-15",
+      "value": 3.33,
+      "secondaryValue": 5.39,
+      "tertiaryValue": 27.63,
+      "normalized": 0.2379
+    },
+    {
+      "date": "2023-10-15",
+      "value": 2.02,
+      "secondaryValue": 4.78,
+      "tertiaryValue": 27.52,
+      "normalized": 0.1443
+    },
+    {
+      "date": "2023-11-15",
+      "value": 3.51,
+      "secondaryValue": 5.22,
+      "tertiaryValue": 27.83,
+      "normalized": 0.2507
+    },
+    {
+      "date": "2023-12-15",
+      "value": 5.82,
+      "secondaryValue": 5.44,
+      "tertiaryValue": 28.05,
+      "normalized": 0.4157
+    }
+  ],
+  "provenance": {
+    "dataStatus": "CACHED_SOURCE_SNAPSHOT",
+    "provider": "NASA Langley Research Center (LaRC) POWER Project / GMAO MERRA-2",
+    "sourceUrl": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=PRECTOTCORR,WS10M,T2M,T2M_RANGE,PS&community=RE&longitude=-140&latitude=4&start=2022&end=2023&format=JSON",
+    "retrievedAt": "2026-11-15T05:12:16.933Z",
+    "processing": [
+      "Fetched monthly PRECTOTCORR, WS10M, and T2M from power.larc.nasa.gov for (4°, -140°)",
+      "Validated payload with Zod schema and converted -999 fill markers to null (never 0)",
+      "Normalized PRECTOTCORR linearly against documented range [0.0, 14.0 mm/day]"
+    ]
+  }
+}

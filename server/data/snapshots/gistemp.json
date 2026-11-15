@@ -1,0 +1,237 @@
+{
+  "experienceId": "temperature",
+  "variable": "Global Land-Ocean Surface Temperature Anomaly (J-D Annual Mean)",
+  "unit": "°C",
+  "isRatioScale": false,
+  "documentedRange": {
+    "min": -0.5,
+    "max": 1.5,
+    "basis": "Documented NASA GISTEMP v4 global mean land-ocean temperature anomaly envelope (-0.50°C to +1.50°C relative to the 1951–1980 baseline mean)."
+  },
+  "observations": [
+    {
+      "date": "1950-07-15",
+      "value": -0.17,
+      "secondaryValue": 11.63,
+      "tertiaryValue": 0.33,
+      "normalized": 0.165
+    },
+    {
+      "date": "1953-07-15",
+      "value": 0.08,
+      "secondaryValue": 10.88,
+      "tertiaryValue": 0.5,
+      "normalized": 0.29
+    },
+    {
+      "date": "1956-07-15",
+      "value": -0.19,
+      "secondaryValue": 10.75,
+      "tertiaryValue": 0.32,
+      "normalized": 0.155,
+      "annotation": "1956 La Niña Negative Anomaly (-0.19°C vs 1951–1980)"
+    },
+    {
+      "date": "1959-07-15",
+      "value": 0.03,
+      "secondaryValue": 11.25,
+      "tertiaryValue": 0.47,
+      "normalized": 0.265
+    },
+    {
+      "date": "1962-07-15",
+      "value": 0.03,
+      "secondaryValue": 10.63,
+      "tertiaryValue": 0.47,
+      "normalized": 0.265
+    },
+    {
+      "date": "1964-07-15",
+      "value": -0.2,
+      "secondaryValue": 11.5,
+      "tertiaryValue": 0.31,
+      "normalized": 0.15,
+      "annotation": "1964 Post-Mt. Agung Volcanic Aerosol Cooling (-0.20°C)"
+    },
+    {
+      "date": "1965-07-15",
+      "value": -0.11,
+      "secondaryValue": 9.88,
+      "tertiaryValue": 0.38,
+      "normalized": 0.195
+    },
+    {
+      "date": "1968-07-15",
+      "value": -0.08,
+      "secondaryValue": 13.75,
+      "tertiaryValue": 0.4,
+      "normalized": 0.21
+    },
+    {
+      "date": "1971-07-15",
+      "value": -0.08,
+      "secondaryValue": 10.13,
+      "tertiaryValue": 0.4,
+      "normalized": 0.21
+    },
+    {
+      "date": "1974-07-15",
+      "value": -0.07,
+      "secondaryValue": 12.63,
+      "tertiaryValue": 0.4,
+      "normalized": 0.215
+    },
+    {
+      "date": "1977-07-15",
+      "value": 0.18,
+      "secondaryValue": 11.88,
+      "tertiaryValue": 0.57,
+      "normalized": 0.34
+    },
+    {
+      "date": "1980-07-15",
+      "value": 0.26,
+      "secondaryValue": 11.25,
+      "tertiaryValue": 0.63,
+      "normalized": 0.38,
+      "annotation": "1980 Sustained Positive Warming Shift (+0.26°C)"
+    },
+    {
+      "date": "1983-07-15",
+      "value": 0.31,
+      "secondaryValue": 12.5,
+      "tertiaryValue": 0.66,
+      "normalized": 0.405
+    },
+    {
+      "date": "1986-07-15",
+      "value": 0.18,
+      "secondaryValue": 12.25,
+      "tertiaryValue": 0.57,
+      "normalized": 0.34
+    },
+    {
+      "date": "1989-07-15",
+      "value": 0.27,
+      "secondaryValue": 11.13,
+      "tertiaryValue": 0.63,
+      "normalized": 0.385
+    },
+    {
+      "date": "1992-07-15",
+      "value": 0.22,
+      "secondaryValue": 14.13,
+      "tertiaryValue": 0.6,
+      "normalized": 0.36,
+      "annotation": "1992 Post-Mt. Pinatubo Stratospheric Cooling (+0.22°C)"
+    },
+    {
+      "date": "1995-07-15",
+      "value": 0.44,
+      "secondaryValue": 14.63,
+      "tertiaryValue": 0.75,
+      "normalized": 0.47
+    },
+    {
+      "date": "1998-07-15",
+      "value": 0.61,
+      "secondaryValue": 13.75,
+      "tertiaryValue": 0.86,
+      "normalized": 0.555,
+      "annotation": "1998 Major Pacific El Niño Peak (+0.61°C)"
+    },
+    {
+      "date": "2001-07-15",
+      "value": 0.53,
+      "secondaryValue": 11.5,
+      "tertiaryValue": 0.81,
+      "normalized": 0.515
+    },
+    {
+      "date": "2004-07-15",
+      "value": 0.53,
+      "secondaryValue": 13.88,
+      "tertiaryValue": 0.81,
+      "normalized": 0.515
+    },
+    {
+      "date": "2007-07-15",
+      "value": 0.66,
+      "secondaryValue": 14.38,
+      "tertiaryValue": 0.9,
+      "normalized": 0.58
+    },
+    {
+      "date": "2010-07-15",
+      "value": 0.72,
+      "secondaryValue": 13.88,
+      "tertiaryValue": 0.94,
+      "normalized": 0.61
+    },
+    {
+      "date": "2013-07-15",
+      "value": 0.67,
+      "secondaryValue": 11.75,
+      "tertiaryValue": 0.91,
+      "normalized": 0.585
+    },
+    {
+      "date": "2016-07-15",
+      "value": 1.01,
+      "secondaryValue": 15,
+      "tertiaryValue": 1.14,
+      "normalized": 0.755,
+      "annotation": "2016 Super El Niño — First Year Above +1.0°C (+1.01°C)"
+    },
+    {
+      "date": "2019-07-15",
+      "value": 0.98,
+      "secondaryValue": 11.88,
+      "tertiaryValue": 1.12,
+      "normalized": 0.74
+    },
+    {
+      "date": "2022-07-15",
+      "value": 0.89,
+      "secondaryValue": 11.88,
+      "tertiaryValue": 1.06,
+      "normalized": 0.695
+    },
+    {
+      "date": "2023-07-15",
+      "value": 1.17,
+      "secondaryValue": 15.63,
+      "tertiaryValue": 1.25,
+      "normalized": 0.835,
+      "annotation": "2023 Record Global Thermal Jump (+1.17°C)"
+    },
+    {
+      "date": "2024-07-15",
+      "value": 1.28,
+      "secondaryValue": 11.38,
+      "tertiaryValue": 1.32,
+      "normalized": 0.89,
+      "annotation": "2024 Warmest Complete Year in NASA GISTEMP Record (+1.28°C)"
+    },
+    {
+      "date": "2025-07-15",
+      "value": 1.19,
+      "secondaryValue": 12.38,
+      "tertiaryValue": 1.26,
+      "normalized": 0.845
+    }
+  ],
+  "provenance": {
+    "dataStatus": "CACHED_SOURCE_SNAPSHOT",
+    "provider": "NASA Goddard Institute for Space Studies (GISS) — GISTEMP v4",
+    "sourceUrl": "https://data.giss.nasa.gov/gistemp/tabledata_v4/GLB.Ts+dSST.csv",
+    "retrievedAt": "2026-11-15T05:12:15.760Z",
+    "referencePeriod": "1951-1980",
+    "processing": [
+      "Fetched live GLB.Ts+dSST.csv from data.giss.nasa.gov/gistemp/tabledata_v4/",
+      "Parsed J-D annual mean column and converted \"***\" missing markers to null (never 0)",
+      "Computed intra-annual monthly spread (max(Jan..Dec) - min(Jan..Dec)) for secondary rhythm parameter",
+      "Normalized values linearly against documented range [-0.50°C, +1.50°C] relative to 1951–1980 baseline"
+    ]
+  }
+}
