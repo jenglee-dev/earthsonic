@@ -7,7 +7,21 @@
 **EarthSonic** is a full-stack scientific data sonification platform and installable Progressive Web App (PWA) that pairs NASA Earth observations (NASA GISS GISTEMP v4, NASA Langley POWER MERRA-2, and NASA GIBS satellite visual frames) with real-time Web Audio API synthesis and accessible screen-reader / Guided Listening support.
 
 > **Disclaimer:** EarthSonic is an independent educational project created for the 2026 NASA Space Apps Challenge and is **not** an official NASA product or endorsed by NASA.
+---
 
+## 🌍 Live Demo
+
+| | Link |
+| :--- | :--- |
+| **Try EarthSonic (frontend, Vercel)** | **https://earthsonic-six.vercel.app** |
+| **Backend API health check (Render)** | https://earthsonic-9mv4.onrender.com/api/v1/health |
+| **Source code** | https://github.com/jenglee-dev/earthsonic |
+
+**Tips for first-time visitors**
+- Press **Play** once. Browsers block sound until you click or press a key.
+- The backend runs on a free Render plan and can take **30–60 seconds** to wake up on the first request. If the data badge shows `LOCAL DEMONSTRATION DATA`, wait a minute, open the health check link above, then click **Retry** or reload.
+- Look at the data status badge to see whether the data is live NASA data, a saved NASA snapshot, or bundled demonstration data.
+- No installation is needed. You can also install it as an app from the **Install App** button.
 ---
 
 ## 1. Monorepo Architecture
